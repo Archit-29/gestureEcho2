@@ -8,6 +8,10 @@ import pickle
 import pyttsx3
 import threading
 from datetime import datetime
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report, accuracy_score
 
 app = Flask(__name__)
 CORS(app)
@@ -187,19 +191,71 @@ def handle_gesture_map():
         except Exception as e:
             return jsonify({'status': 'error', 'message': str(e)}), 400
 
+def train_gesture_model_internal():
+    """Train a Random Forest model for gesture classification"""
+    try:
+        # Check if data file exists
+        if not os.path.exists(DATA_FILE):
+            return False, "No training data found. Please collect data first."
+        
+        # Load data
+        df = pd.read_csv(DATA_FILE)
+        
+        if len(df) < 10:
+            return False, "Not enough training data. Need at least 10 samples."
+        
+        # Prepare features and labels
+        features = ['thumb', 'index', 'middle', 'ring', 'pinky']
+        X = df[features].values
+        y = df['gesture'].values
+        
+        # Encode labels
+        label_encoder = LabelEncoder()
+        y_encoded = label_encoder.fit_transform(y)
+        
+        # Split data
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded
+        )
+        
+        # Train Random Forest model
+        model = RandomForestClassifier(
+            n_estimators=100,
+            random_state=42,
+            max_depth=10,
+            min_samples_split=2,
+            min_samples_leaf=1
+        )
+        
+        model.fit(X_train, y_train)
+        
+        # Evaluate model
+        y_pred = model.predict(X_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        
+        # Save model and encoder
+        with open(MODEL_FILE, 'wb') as f:
+            pickle.dump(model, f)
+        
+        with open(ENCODER_FILE, 'wb') as f:
+            pickle.dump(label_encoder, f)
+        
+        return True, f"Model trained successfully! Accuracy: {accuracy:.3f}"
+        
+    except Exception as e:
+        return False, f"Error during training: {str(e)}"
+
 @app.route('/train_model', methods=['POST'])
 def train_model_endpoint():
     """Trigger model training"""
     try:
-        import subprocess
-        result = subprocess.run(['python', 'train_model.py'], 
-                              capture_output=True, text=True)
+        success, message = train_gesture_model_internal()
         
-        if result.returncode == 0:
+        if success:
             load_model()  # Reload the newly trained model
-            return jsonify({'status': 'success', 'message': 'Model trained successfully'})
+            return jsonify({'status': 'success', 'message': message})
         else:
-            return jsonify({'status': 'error', 'message': result.stderr}), 400
+            return jsonify({'status': 'error', 'message': message}), 400
             
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 400
