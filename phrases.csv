@@ -1,0 +1,96 @@
+Preset,GestureID,Phrase
+Hospital,G_00001,Hello
+Hospital,G_00010,Thank you doctor
+Hospital,G_00011,Good afternoon
+Hospital,G_00100,I need water
+Hospital,G_00101,I need food
+Hospital,G_00110,Call the nurse
+Hospital,G_00111,Please help me
+Hospital,G_01000,Where is the washroom?
+Hospital,G_01001,Can you adjust the bed?
+Hospital,G_01010,I am feeling dizzy
+Hospital,G_01011,I am in pain
+Hospital,G_01100,I feel nauseous
+Hospital,G_01101,I need medicine
+Hospital,G_01110,Please check my blood pressure
+Hospital,G_01111,I need to rest
+Hospital,G_10000,I need assistance
+Hospital,G_10001,Please change my bedsheet
+Hospital,G_10010,Can I sit up?
+Hospital,G_10011,I need a blanket
+Hospital,G_10100,Please open the window
+Hospital,G_10101,Please turn off the lights
+Hospital,G_10110,I am cold
+Hospital,G_10111,I am feeling better
+Hospital,G_11000,Good morning
+Hospital,G_11001,Good night
+Hospital,G_11010,Thank you for your help
+Hospital,G_11011,I am comfortable now
+Hospital,G_11100,Everything is okay
+Hospital,G_11101,I need to go home
+Hospital,G_11110,Please call my family
+Hospital,G_11111,Emergency please
+
+Grocery,G_00001,Where is the milk?
+Grocery,G_00010,How much does this cost?
+Grocery,G_00011,Is this fresh?
+Grocery,G_00100,Do you have eggs?
+Grocery,G_00101,Do you have bread?
+Grocery,G_00110,I need a shopping bag
+Grocery,G_00111,Can you give a discount?
+Grocery,G_01000,Where is the rice?
+Grocery,G_01001,Where is the sugar?
+Grocery,G_01010,Is this organic?
+Grocery,G_01011,Can I get half a kilo?
+Grocery,G_01100,Can you weigh this fruit?
+Grocery,G_01101,Please pack this properly
+Grocery,G_01110,Do you accept UPI?
+Grocery,G_01111,What is the total?
+Grocery,G_10000,Is there any offer?
+Grocery,G_10001,Is this item on sale?
+Grocery,G_10010,I want one more of this
+Grocery,G_10011,Please remove this item
+Grocery,G_10100,I am ready to pay
+Grocery,G_10101,Please give the bill
+Grocery,G_10110,Can I pay by card?
+Grocery,G_10111,Please hurry
+Grocery,G_11000,Thank you
+Grocery,G_11001,Have a good day
+Grocery,G_11010,This is expensive
+Grocery,G_11011,This is cheap
+Grocery,G_11100,See you again
+Grocery,G_11101,I forgot something
+Grocery,G_11110,Can you keep this aside?
+Grocery,G_11111,That’s all for today
+
+Private,G_00001,Hello
+Private,G_00010,Good morning
+Private,G_00011,Good evening
+Private,G_00100,How are you?
+Private,G_00101,I am fine
+Private,G_00110,Please wait
+Private,G_00111,Let’s talk later
+Private,G_01000,Call me later
+Private,G_01001,I am busy
+Private,G_01010,Thank you
+Private,G_01011,Sorry
+Private,G_01100,Yes
+Private,G_01101,No
+Private,G_01110,Maybe
+Private,G_01111,Okay
+Private,G_10000,Hi Amit sir
+Private,G_10001,Good to see you
+Private,G_10010,Take care
+Private,G_10011,See you soon
+Private,G_10100,Please help
+Private,G_10101,I need advice
+Private,G_10110,That sounds good
+Private,G_10111,That sounds bad
+Private,G_11000,Everything is fine
+Private,G_11001,Not feeling well
+Private,G_11010,Let’s go
+Private,G_11011,Stop here
+Private,G_11100,Thank you very much
+Private,G_11101,You are welcome
+Private,G_11110,Have a nice day
+Private,G_11111,Goodbye
