@@ -95,4 +95,4 @@ void loop() {
   }
   
   delay(500); // Send data every 500ms
-}
+}  //gestureEcho
