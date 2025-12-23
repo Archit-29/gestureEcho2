@@ -102,4 +102,4 @@ if __name__ == "__main__":
     if success:
         print("\n✅ Training completed successfully!")
     else:
-        print("\n❌ Training failed!")
+        print("\n❌ Training failed!")  #gestureEcho
